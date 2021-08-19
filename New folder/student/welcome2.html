@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        /* navbar css {*/
+        
+        ul li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+        
+        nav {
+            max-height: 40px;
+            background-color: rgb(9, 70, 11);
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav .navbar,
+        nav .login {
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+        }
+        
+        nav .navbar button,
+        #menubar {
+            display: none;
+        }
+        
+        nav .navbar button .icon-bar {
+            padding: .5px;
+            margin: 3px;
+            width: 19px;
+            min-height: .7px;
+            z-index: -1;
+            display: flex;
+            border: 1px solid black;
+        }
+        
+        nav .login,
+        nav .menu ul li {
+            text-decoration: none;
+            color: white;
+            border-left: 1px solid black;
+        }
+        
+        nav .menu ul li a {
+            transition-property: all;
+            transition-duration: 1.5s;
+            line-height: 40px;
+            font-size: 20px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+        
+        nav .menu ul li:hover {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+            color: rgb(145, 154, 161);
+            background-color: #2c813d;
+        }
+        
+        .active {
+            font-weight: bold;
+            background-color: rgb(31, 190, 31);
+            font-style: italic;
+            border: 1px sold black;
+            border-radius: 5px;
+        }
+        
+        @media screen and (min-width:902px) {
+            nav .menu ul li {
+                display: inline-block;
+            }
+        }
+        
+        @media screen and (max-width:902px) {
+            nav .navbar button,
+            #menubar {
+                display: block;
+            }
+            nav .menu ul li {
+                border-bottom: .7px dotted red;
+                background-color: rgb(31, 107, 8);
+                height: fit-content;
+            }
+            nav .menu ul li a {
+                transition-property: all;
+                transition-duration: 1.5s;
+                line-height: 40px;
+                font-size: 20px;
+                padding: 9px 15px;
+            }
+            nav .menu {
+                z-index: 10;
+                display: none;
+            }
+        }
+        /* dropdown */
+        
+        .dropdown .dropbtn {
+            height: 40px;
+            margin: auto;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: inherit;
+            padding: 0px 20px 0px 5px;
+        }
+        
+        .dropdown-content {
+            line-height: 40px;
+            display: none;
+            top: 38px;
+            position: absolute;
+            background-color: #0f3801e3;
+            min-width: 160px;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            padding: 0px 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            text-align: left;
+        }
+        
+        @media screen and (max-width: 950px) {
+            .dropdown-content a {
+                padding: 0px 10px;
+            }
+            .dropdown .dropbtn {
+                border: none;
+            }
+        }
+        
+        nav .login a {
+            transition-property: all;
+            transition-duration: .3s;
+            line-height: 30px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        
+        .dropdown .dropbtn:hover,
+        nav .login a:hover {
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+            color: rgb(145, 154, 161);
+            background-color: #2c813d;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* } */
+        
+        nav .dropdown img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        /* } */
+        /* } */
+        
+         ::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        .isued::-webkit-scrollbar-thumb {
+            background-color: rgb(0, 230, 38);
+        }
+        
+        .returnalert::-webkit-scrollbar-thumb {
+            background-color: red;
+        }
+        
+        .returnalert::-webkit-scrollbar-thumb {
+            background-color: red;
+        }
+        
+        main {
+            width: 98.5%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 20% 70%;
+            justify-content: space-between;
+        }
+        
+        .box0,
+        main div.box1 {
+            padding-left: 15px;
+        }
+        /* return book */
+        
+        header {
+            width: fit-content;
+            margin: auto;
+            font-size: 25px;
+            padding: 8px;
+            border-bottom: 2px solid gray;
+        }
+        
+        main .box1 .returnalert {
+            height: 39vh;
+            width: 99%;
+            overflow: auto;
+            border-bottom: 2px solid gray;
+            border-bottom-right-radius: 5px;
+        }
+        
+        main .box1 .isued {
+            height: 52.5vh;
+            width: 99%;
+            overflow: auto;
+        }
+        
+        main .box1 .returnalert header {
+            color: rgb(250, 10, 10);
+        }
+        
+        .isued header {
+            color: rgb(39, 186, 17);
+        }
+        
+        main .box1 .member {
+            margin-bottom: 5px;
+            border-left: 2.5px solid rgb(13, 85, 3);
+            border-bottom: 2.5px dotted rgb(13, 85, 3);
+        }
+        
+        main .box1 .returnalert .member {
+            border-bottom: 3px dotted rgb(255, 0, 0);
+        }
+        
+        main .box1 .member .bki {
+            width: 85%;
+            padding: 5px;
+        }
+        
+        main .box1 .member .numofbk {
+            transform: translate(-150%, 250%);
+            float: right;
+            width: 8px;
+            border-radius: 50%;
+            text-align: center;
+            height: 8px;
+            background-color: rgb(13, 85, 3);
+        }
+        
+        main .box1 .returnalert .member .numofbk {
+            background-color: rgb(248, 9, 9);
+        }
+        /* boxmiddl */
+        
+        .box0 p {
+            width: fit-content;
+            margin: auto;
+            font-size: 20px;
+            padding: 8px;
+        }
+        
+        .box0 .box02 {
+            border-top: 2.5px dotted gray;
+            border-bottom: 2.5px dotted gray;
+        }
+        /* copyright style/decoration */
+        
+        .copyright {
+            width: 100%;
+            background-color: rgb(9, 75, 1);
+        }
+        
+        .copyright p {
+            color: white;
+            width: fit-content;
+            font-size: 11px;
+            padding: 2px;
+            font-family: cursive;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="hidemenubar()" style="padding-left:5px ;">X
+
+
+                </li>
+                <li>
+                    <a href="welcome.html">home</a>
+                </li>
+                <li>
+                    <a href="bookdb.html">book database</a>
+                </li>
+                <li>
+                    <a href="member.html">member table</a>
+                </li>
+                <li>
+                    <a href="memberbox.html">member box</a>
+                </li>
+                <li class="active">
+                    <a href="welcome2.html">student welcome</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="dropdown login">
+            <button class="dropbtn"><img src="img/user-male-icon.png" alt=""> <i class="fa fa-caret-down"></i>
+                </button>
+            <div class="dropdown-content" style="margin-left: -60px;">
+                <a href="#">View Profile</a>
+                <a href="#">issued book</a>
+                <a href="#">log-out</a>
+            </div>
+
+        </div>
+
+
+    </nav>
+    <main>
+        <div class="box1">
+            <div class="returnalert">
+                <header>return alert</header>
+                <div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="isued">
+                <header>active book</header>
+
+                <div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="numofbk"></div>
+                        <div class="bki">
+                            <div id="bkid">
+                                <p>bk510562</p>
+                            </div>
+                            <div id="bkname">
+                                <p>let us c</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box0">
+            <div class="box01">
+                <header id="hder1">discription</header>
+                <p id="inrtxt1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae distinctio quisquam asperiores possimus labore nisi dolorem, at tenetur molestiae delectus quae eos architecto quas vero mollitia! Quo ullam alias incidunt.
+                </p>
+            </div><br><br><br><br>
+            <div class="box02">
+                <header id="hder2">about you</header>
+                <p id="inrtxt2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae distinctio quisquam asperiores possimus labore nisi dolorem, at tenetur molestiae delectus quae eos architecto quas vero mollitia! Quo ullam alias incidunt.
+                </p>
+            </div>
+
+
+        </div>
+
+
+    </main>
+    <footer>
+        <div class="copyright ">
+            <p>@Copyright 2021 Indian Digital library</p>
+        </div>
+    </footer>
+    <script>
+        S1 = document.getElementById("s1");
+        S11 = document.getElementById("s11");
+        S12 = document.getElementById("s12");
+        S13 = document.getElementById("s13");
+        S2 = document.getElementById("s2");
+        var icon;
+
+        function showmenubar() {
+            S2.style.display = "block";
+            S1.style.display = "none";
+        }
+        window.onclick = function(event) {
+            var w = window.innerWidth;
+
+
+            if (event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) {
+
+                showmenubar();
+            } else if (event.target != s2 && !(event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) && w <= 902) {
+                console.log('hi else if ');
+                console.log(event.target);
+                hidemenubar();
+
+            }
+
+        }
+
+        function hidemenubar() {
+            s2.style.display = "none";
+            s1.style.display = "block";
+        }
+    </script>
+</body>
+
+
+</html>

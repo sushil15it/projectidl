@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book list</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        /* navbar css {*/
+        
+        ul li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+        
+        nav {
+            max-height: 40px;
+            background-color: rgb(9, 70, 11);
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav .navbar,
+        nav .login {
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+        }
+        
+        nav .navbar button,
+        #menubar {
+            display: none;
+        }
+        
+        nav .navbar button .icon-bar {
+            padding: .5px;
+            margin: 3px;
+            width: 19px;
+            min-height: .7px;
+            z-index: -1;
+            display: flex;
+            border: 1px solid black;
+        }
+        
+        nav .login a,
+        nav .menu ul li {
+            text-decoration: none;
+            color: white;
+            border-left: 1px solid black;
+        }
+        
+        nav .login a,
+        nav .menu ul li a {
+            transition-property: all;
+            transition-duration: 1.5s;
+            line-height: 40px;
+            font-size: 20px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+        
+        nav .login a:hover,
+        nav .menu ul li:hover {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+            color: rgb(145, 154, 161);
+        }
+        
+        .active {
+            font-weight: bold;
+            margin: 0;
+            background-color: rgb(31, 190, 31);
+            font-style: italic;
+            border: 1px sold black;
+            border-radius: 5px;
+        }
+        
+        @media screen and (min-width:902px) {
+            nav .menu ul li {
+                display: inline-block;
+            }
+        }
+        
+        @media screen and (max-width:902px) {
+            nav .navbar button,
+            #menubar {
+                display: block;
+            }
+            nav .menu ul li {
+                border-bottom: .7px dotted red;
+                background-color: rgb(31, 107, 8);
+                height: fit-content;
+            }
+            nav .menu ul li a {
+                transition-property: all;
+                transition-duration: 1.5s;
+                line-height: 40px;
+                font-size: 20px;
+                padding: 9px 15px;
+            }
+            nav .menu {
+                z-index: 10;
+                display: none;
+            }
+        }
+        /* main */
+        
+        main {
+            margin: auto;
+            width: 90%;
+            min-height: 88vh;
+            padding: 10px;
+        }
+        /* pop up add book */
+        
+        div.adbk {
+            width: fit-content;
+            height: 60px;
+        }
+        
+        div.adbk {
+            width: fit-content;
+            height: 60px;
+        }
+        
+        div.adbk button#adbkbtn {
+            margin: auto;
+            background-color: rgb(31, 107, 8);
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        #adbkbtn:hover {
+            transform: translate(-8%, 0%);
+            font-size: 23px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        #popup {
+            display: none;
+            ;
+        }
+        
+        #popup form#adbform {
+            width: fit-content;
+            max-width: 80%;
+            height: fit-content;
+            border: 1px solid red;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        #overley {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(131, 130, 130, 0.788);
+            width: 100%;
+            height: 100vh;
+            z-index: 10;
+            cursor: pointer;
+        }
+        
+        #clpopup {
+            border: 1px solid rgb(252, 41, 41);
+            background-color: rgba(131, 130, 130, 0.925);
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(60%, -60%);
+            cursor: pointer;
+            width: 15px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        /* form */
+        
+        form .inptbx {
+            width: fit-content;
+            margin: 10px 5px;
+        }
+        
+        form header {
+            font-size: 29px;
+            font-weight: bold;
+            width: fit-content;
+            margin: auto;
+            background-color: white;
+            padding: 1px 8px;
+            color: rgb(31, 107, 8);
+        }
+        
+        form .inptbx p {
+            font-size: 21px;
+            width: fit-content;
+            position: relative;
+            top: 0px;
+            margin: 5px;
+            padding: 1px 8px;
+            transform: translate(0px, 10px);
+            background-color: white;
+        }
+        
+        form .inptbx .inpt {
+            outline: none;
+            padding: 10px 5px 7px 10px;
+            font-size: 21px;
+            width: fit-content;
+            border-radius: 10px;
+            background-color: white;
+            border: 1px solid rgb(148, 145, 145);
+        }
+        
+        #adbktdb {
+            background-color: rgb(31, 107, 8);
+            color: white;
+            font-size: 20px;
+            width: 90%;
+            margin: auto;
+            display: block;
+            outline: none;
+            padding: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        #adbktdb:hover {
+            width: 95%;
+            font-size: 23px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        /* } */
+        
+        .box1 table,
+        .box1 th {
+            font-size: 20px;
+            padding: 5px;
+            border-collapse: collapse;
+            border: 2px solid rgb(8, 115, 17);
+        }
+        
+        .box1 tr,
+        .box1 td {
+            padding: 3px;
+            border-collapse: collapse;
+            border: .2px solid rgb(8, 115, 17);
+        }
+        
+        .box1 {
+            margin: 20px 0px 5px 0px;
+        }
+        
+        .box1 table {
+            width: 100%;
+        }
+        /* copyright style/decoration */
+        
+        .copyright {
+            width: 100%;
+            background-color: rgb(9, 75, 1);
+        }
+        
+        .copyright p {
+            color: white;
+            width: fit-content;
+            font-size: 11px;
+            padding: 2px;
+            font-family: cursive;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="hidemenubar()">
+                    <a href="#">x</a>
+
+
+                </li>
+                <li>
+                    <a href="#">home</a>
+                </li>
+                <li class="active">
+                    <a class="active" href="#">book database</a>
+                </li>
+                <li>
+                    <a href="#">member table</a>
+                </li>
+                <li>
+                    <a href="#">member box</a>
+                </li>
+                <li>
+                    <a href="#">about you</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="login">
+            <a href="#">profile</a>
+        </div>
+
+
+    </nav>
+
+
+    <main>
+        <div class="adbk">
+            <button id="adbkbtn" onclick="popupshow()">add book</button>
+            <div id="popup">
+                <form id="adbform" action="">
+                    <p id=clpopup>x</p>
+                    <header>add book</header>
+                    <div class="inptbx">
+                        <p>id</p>
+                        <input class="inpt" type="text" placeholder="id" name="id" required>
+                    </div>
+                    <div class="inptbx">
+                        <p>book name</p>
+                        <input class="inpt" type="text" placeholder="book name" name="book_name" required>
+                    </div>
+                    <div class="inptbx">
+                        <p>author</p>
+                        <input class="inpt" type="text" placeholder="book writer" name="author" required>
+                    </div>
+                    <div class="inptbx">
+                        <p>quantity</p>
+                        <input class="inpt" type="number" placeholder="100" name="quantity" required>
+                    </div>
+                    <div>
+                        <button type="submit" id="adbktdb">add</button></div>
+                </form>
+                <p id="overley"></p>
+            </div>
+
+        </div>
+        <div class="box1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>book Id</th>
+                        <th> book name</th>
+                        <th>(Author)</th>
+                        <th>tootal no of book</th>
+                        <th>in use</th>
+                        <th>available book</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>enpro1</td>
+                        <td>Let Us C 16TH EDITION</td>
+                        <td>
+                            Yashavant Kanetkar(Author)
+                        </td>
+                        <td>100</td>
+                        <td>1
+                            <div class="stulist"></div>
+                        </td>
+                        <td>
+                            99
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>enpro2</td>
+                        <td>C-Programming-Language</td>
+                        <td>
+                            Bjarne-Stroustrup
+                        </td>
+                        <td>100</td>
+                        <td>2
+                            <div class="stulist"></div>
+                        </td>
+                        <td>
+                            99
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>enpro1</td>
+                        <td>Let Us C 16TH EDITION</td>
+                        <td>
+                            Yashavant Kanetkar(Author)
+                        </td>
+                        <td>100</td>
+                        <td>1
+                            <div class="stulist"></div>
+                        </td>
+                        <td>
+                            99
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>enpro2</td>
+                        <td>C-Programming-Language</td>
+                        <td>
+                            Bjarne-Stroustrup
+                        </td>
+                        <td>100</td>
+                        <td>2
+                            <div class="stulist"></div>
+                        </td>
+                        <td>
+                            99
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div><br><br><br>
+        <p id="fx"></p>
+    </main>
+    <footer>
+        <div class="copyright ">
+            <p>@Copyright 2021 Indian Digital library</p>
+        </div>
+    </footer>
+    <script>
+        S1 = document.getElementById("s1");
+        S11 = document.getElementById("s11");
+        S12 = document.getElementById("s12");
+        S13 = document.getElementById("s13");
+        S2 = document.getElementById("s2");
+        popup = document.getElementById("popup");
+        clpopup = document.getElementById("clpopup");
+        overley = document.getElementById("overley");
+
+        var icon;
+
+        function showmenubar() {
+            S2.style.display = "block";
+            S1.style.display = "none";
+        }
+        window.onclick = function(event) {
+            var w = window.innerWidth;
+
+
+            if (event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) {
+                showmenubar();
+            } else if (event.target != s2 && S2.style.display == 'block' && !(event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) && w <= 902) {
+                hidemenubar();
+
+            } else if (event.target == overley || event.target == clpopup) {
+                popup.style.display = 'none';
+
+            }
+
+        }
+
+        function hidemenubar() {
+            s2.style.display = "none";
+            s1.style.display = "block";
+        }
+
+        function popupshow() {
+            popup.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

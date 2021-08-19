@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+        }
+        
+        body {
+            width: 100%;
+            overflow: hidden;
+        }
+        /* navbar css {*/
+        
+        ul li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+        
+        .active {
+            color: rgb(0, 119, 255);
+            font-weight: bold;
+            background-color: rgb(26, 185, 26);
+        }
+        
+        nav {
+            max-height: 40.4px;
+            background-color: rgb(23, 120, 26);
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav .navbar,
+        nav .login {
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+        }
+        
+        nav .navbar button,
+        #menubar {
+            display: none;
+        }
+        
+        @media screen and (max-width:902px) {
+            nav .navbar button,
+            #menubar {
+                display: block;
+            }
+            nav .menu ul li {
+                color: red;
+                background-color: rgb(23, 120, 26);
+            }
+            nav .menu {
+                display: none;
+            }
+        }
+        
+        nav .navbar button .icon-bar {
+            padding: .5px;
+            margin: 3px;
+            width: 19px;
+            min-height: .7px;
+            display: flex;
+            border: 1px solid black;
+        }
+        
+        nav .menu,
+        nav .menu ul,
+        nav .menu ul li,
+        nav .menu ul li {
+            height: 40px;
+        }
+        
+        @media screen and (min-width:902px) {
+            nav .menu ul li {
+                display: inline-block;
+            }
+        }
+        
+        nav .login a,
+        nav .menu ul li {
+            text-decoration: none;
+            color: white;
+            border-left: 1px solid black;
+        }
+        
+        nav .login a,
+        nav .menu ul li a {
+            transition-property: all;
+            transition-duration: 1s;
+            margin: auto;
+            line-height: 40px;
+            font-size: 20px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+        
+        nav .login a:hover,
+        nav .menu ul li:hover {
+            font-style: italic;
+            text-decoration: underline;
+            color: rgb(4, 33, 59);
+        }
+        /* } */
+        
+         ::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background-color: red;
+        }
+        
+        button {
+            font-size: 20px;
+            width: 180px;
+            height: ;
+            padding: 5px;
+            margin: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .dark {
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+        
+        .white {
+            background-color: white;
+            color: rgb(10, 81, 12);
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: 20% 49% 20%;
+            justify-content: space-between;
+        }
+        
+        .box1 {
+            height: 99vh;
+            overflow: auto;
+        }
+        /* return book */
+        
+        header {
+            width: fit-content;
+            margin: auto;
+            font-size: 25px;
+            padding: 8px;
+            border-bottom: 2px solid gray;
+        }
+        
+        .return header {
+            color: rgb(35, 136, 224);
+        }
+        
+        .returnalert {
+            height: 39vh;
+            width: 99%;
+            overflow: auto;
+            color: rgb(250, 10, 10);
+            border-left: 2px solid gray;
+            border-bottom: 2px solid gray;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .isued {
+            scrollbar-color: red;
+            border-left: 3px solid gray;
+            height: 69vh;
+            width: 99%;
+            overflow: auto;
+        }
+        
+        .isued header {
+            color: rgb(39, 186, 17);
+        }
+        
+        .box .booklist {
+            margin-left: 35px;
+        }
+        
+        .box .booklist ol li p {
+            width: 80%;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+            align-items: center;
+        }
+        
+        .box .booklist ol li img {
+            width: 80%;
+            min-height: 50px;
+            margin-bottom: 20px;
+        }
+        /*profile  */
+        
+        main .box .profile .img img {
+            height: 100%;
+            margin: auto;
+            z-index: -5;
+        }
+        
+        main .box .profile .img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            margin: auto;
+            justify-content: center;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        main .box .profile .row {
+            width: 80%;
+            margin-left: 100px;
+            align-items: center;
+            display: flex;
+            font-size: 30px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1" onclick="showmenubar()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="hidemenubar()" style="padding-left:5px ;">X
+
+
+                </li>
+                <li>
+                    <a href="#">home</a>
+                </li>
+                <li>
+                    <a href="bookdb.html">book database</a>
+                </li>
+                <li>
+                    <a href="member.html">member table</a>
+                </li>
+                <li>
+                    <a href="memberbox.html">member box</a>
+                </li>
+                <li>
+                    <a href="#">about you</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="login">
+            <a class="active" href="profile.html">profile</a>
+        </div>
+
+
+    </nav>
+    <main>
+        <div class="box box1">
+            <div class="return">
+                <header>return book history</header>
+
+                <div class="booklist">
+                    <ol>
+                        <li>
+                            <p class="bookname">book1</p><img src="img/ei-1.jpg" alt="book1"></li>
+                        <li>
+                            <p class="bookname">book2</p><img src="img/ei-2.jpg" alt="book2"></li>
+                        <li>
+                            <p class="bookname">book3</p><img src="img/ei-3.jpg" alt="book3"></li>
+                        <li>
+                            <p class="bookname">book4</p><img src="img/ei-4.jpg" alt="book4"></li>
+                        <li>
+                            <p class="bookname">book5</p><img src="img/ei-5.jpg" alt="book5"></li>
+                        <li>
+                            <p class="bookname">book6</p><img src="img/ei-6.jpg" alt="book6"></li>
+                        <li>
+                            <p class="bookname">book7</p><img src="img/ei-7.jpg" alt="book7"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="box box1">
+            <div class="profile">
+
+                <div class="img"><img src="img/ei-2.jpg" alt=""></div>
+                <div class="detail">
+                    <div class="row">
+                        <p>member:
+                            <span id="member">mk library
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>id:
+                            <span id="id">amrendra20110117113060
+                        </span>
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <p>email:
+                            <span id="email">amrendra@gmail.com
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>mobile:
+                            <span id="mobile">7677993004
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>college:
+                            <span id="college">UIT BU
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>book isued:
+                            <span id="active_book">4 book
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p>return book:
+                            <span id="name">30book
+                        </span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <button>edit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="box ">
+            <div class="returnalert">
+                <header>return alert</header>
+
+                <div class="booklist">
+                    <ol>
+                        <li>
+                            <p class="bookname">book1</p><img src="img/ei-8.jpg" alt="book1"></li>
+                        <li>
+                            <p class="bookname">book2</p><img src="img/ei-9.jpg" alt="book2"></li>
+
+                    </ol>
+                </div>
+            </div>
+            <div class="isued">
+                <header>active book</header>
+
+                <div class="booklist">
+                    <ol>
+                        <li>
+                            <p class="bookname">book1</p><img src="img/cS-1.jpg" alt="book1"></li>
+                        <li>
+                            <p class="bookname">book2</p><img src="img/cS-2.jpg" alt="book2"></li>
+                        <li>
+                            <p class="bookname">book3</p><img src="img/cS-3.jpg" alt="book3"></li>
+                        <li>
+                            <p class="bookname">book4</p><img src="img/cS-4.jpg" alt="book4"></li>
+                        <li>
+                            <p class="bookname">book5</p><img src="img/cS-5.jpg" alt="book5"></li>
+                        <li>
+                            <p class="bookname">book6</p><img src="img/cS-6.jpg" alt="book6"></li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+    <footer>
+    </footer>
+    <script>
+        function showmenubar() {
+            document.getElementById("s2").style.display = "block";
+            document.getElementById("s1").style.display = "none";
+        }
+
+        function hidemenubar() {
+            document.getElementById("s2").style.display = "none";
+            document.getElementById("s1").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

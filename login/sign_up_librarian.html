@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>librarian sign -up</title>
+    <link rel="stylesheet" href="sign_up.css">
+    <script src="sign_up.js">
+    </script>
+</head>
+
+<body onresize="location.reload()">
+    <div id="buller" onclick="menuBr(0)"></div>
+    <nav>
+        <div class="logo">
+            <img src="/projectidl/img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1" onclick="menuBr(1)">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="menuBr(0)" style="padding-left:5px ;">X
+
+
+                </li>
+                <li>
+                    <a href="/projectidl/index.html">home</a>
+                </li>
+                <li>
+                    <a href="log_in.html">book database</a>
+                </li>
+                <li class="active">
+                    <a href="sign_up_librarian.html">sign up as admin</a>
+                </li>
+                <li>
+                    <a href="sign_up_student.html">sign up as user</a>
+                </li>
+
+                <li>
+                    <a href="about.html">about us</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="login">
+            <a href="log_in.html">LOG-IN</a>
+        </div>
+
+
+    </nav>
+    <main>
+        <div class="wrappeer">
+
+            <div class="box">
+
+                <h1 class="header">librarian sign up</h1>
+                <div class="error" id="error" style="display: none;">this is an error massage!</div>
+
+                <div>
+                    <form action="/projectidl/login/loginphp/librarianReg.php" method="POST" onsubmit=" return FormVal()" enctype="multipart/form-data">
+
+                        <div class="d5">
+                            <div id="perinfo">
+
+
+                                <div style="display: flex;">
+                                    <div class="field input_box"><label>First Name<span style="color: rgb(138, 0, 0);">*</span></label>
+                                        <input type="text" name="fname" placeholder="ak">
+                                    </div>
+                                    <div class="field input_box">
+                                        <label>Lirst Name<span style="color: rgb(138, 0, 0);">*</span></label>
+                                        <input type="text" name="lname" placeholder="singh">
+                                    </div>
+                                </div>
+                                <div class="field input_box">
+                                    <label>Email Id<span style="color: rgb(138, 0, 0);">*</span></label>
+                                    <input type="email" name="email" placeholder="ak@gmail.com" required>
+                                </div>
+                                <div class="field input_box">
+                                    <label>password<span style="color: rgb(138, 0, 0);">*</span> </label>
+                                    <input type="password" name="password" id="password" onchange="ValPassword()" required>
+                                </div>
+                                <input type="checkbox" id="cheakbox1" onclick="showpassword('password')"><label>show password</label>
+                                <div class="field input_box">
+                                    <label>confirm password<span style="color: rgb(138, 0, 0);">*</span></label>
+                                    <input type="password" name="cpassword" id="c_password" onchange="ValPassword()" required>
+                                </div>
+                                <input type="checkbox" id="cheakbox2" onclick="showpassword('c_password')"><label>show password</label><span id="PMtch" style="color: chartreuse;font-size: 11px;"> </span>
+                                <div class="field input_box"><label>Mobile no<span style="color: rgb(138, 0, 0);">*</span></label>
+
+                                    <input type="tel" name="mobile_no" id="mobile_no" placeholder="1234567890" pattern="[0-9]{10}" required>
+                                </div>
+                                <div class="field input_box"> <label>highest qualification:<span style="color: rgb(138, 0, 0);">*</span></label>
+                                    <select class="select" id="qualification" name="qualification">
+                            <option></option>
+                              <option value="10th">matric</option>
+                              <option value="intermeadiate">intermeadiate</option>
+                              <option value="ug">Bachelor's degree</option>
+                              <option value="pg">Master's degree</option>
+                              <option value="phd">PHD</option>
+                                   </select>
+                                </div>
+                                <div class="field"><label>image <span style="color: rgb(138, 0, 0);">*</span>  </label>
+                                    <p style="color: blue;">only:- jpg/jpeg/png formate is accepted</p>
+                                    <input type="file" id="img-f" name="image" onchange="return imgVal()" required />
+
+                                    <!-- Image preview -->
+                                    <p id="imgconfirm"></p>
+                                    <div id="imagePreview" style="width: 150px;margin:26px auto;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="librinfo">
+                                <div class="field input_box"> <label>  option user type :</label>
+                                    <select id="u_type" name="user_type">
+                             <option value="admin" selected>librarian
+                            </option>
+                                    </select>
+                                </div>
+
+                                <div class="field input_box"> <label> gender:</label>
+                                    <select class="select" id="gender" name="gender">
+                            <option></option>
+                              <option value="male">male</option>
+                              <option value="female">female</option>
+                              <option value="transgender">transgender</option>
+                                    </select>
+                                </div>
+                                <div class="field input_box"><label>Library Name<span style="color: rgb(138, 0, 0);">*</span></label>
+                                    <input type="text" name="libname">
+                                </div>
+                                <div class="field input_box"><label>organization Name<span style="color: rgb(138, 0, 0);">*</span></label>
+                                    <input type="text" name="organization">
+                                </div>
+                                <div class="field input_box"> <label> type:</label>
+                                    <select class="select" id="l_type" name="Lib_type">
+                            <option></option>
+                              <option value="government">government</option>
+                              <option value="semi-government">semi-government</option>
+                              <option value="private">private</option>
+                                    </select>
+                                </div>
+                                <div class="field input_box"><label>Established</label>
+                                    <input type="month" id="monYear" name="est_year">
+                                </div>
+                                <div class="field input_box"><label>address of library<span style="color: rgb(138, 0, 0);">*</span></label>
+
+                                    <textarea name="address" id="addr" cols="30" rows="3"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div> <button id="submit">sign - up</button></div>
+                    </form>
+                    <div class="link">are you a student?<a href="sign_up_student.html">student sign-up</a>
+                    </div>
+
+                    <div class="link">Already signed up?<a href="log_in.html">Log-in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+
+</html>

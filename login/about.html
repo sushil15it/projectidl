@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about our devloper</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        div.time {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .active {
+            border-radius: 15px;
+            background-color: #294ce7;
+            color: white;
+        }
+        
+        section,
+        .room,
+        div.room-gallery div.room-prev {
+            display: flex;
+        }
+        
+        section {
+            color: black;
+            height: 94.4vh;
+        }
+        
+        div.room-discription {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 50%;
+            height: 100%;
+            color: black;
+            background-color: rgb(247, 198, 144);
+        }
+        
+        section .room {
+            width: 50%;
+            height: 100%;
+        }
+        
+        section .room .back {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        section .room .bkgc {
+            position: absolute;
+            width: 50%;
+            height: 94.4%;
+            z-index: -2;
+            background-color: rgb(247, 223, 195);
+        }
+        
+        #room-background {
+            width: 50%;
+            height: auto;
+            opacity: 0.4;
+            position: absolute;
+            justify-content: center;
+            z-index: -1;
+        }
+        
+        section .room-gallery {
+            width: 80%;
+            overflow: hidden;
+            margin: auto;
+            z-index: 1;
+        }
+        
+        section .room-gallery img {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        section div.room-prev img {
+            opacity: .5;
+            cursor: pointer;
+            transition: 0.30s ease;
+        }
+        
+        section div.room-prev {
+            border-radius: 10px;
+        }
+        
+        section div.room-prev .room-active {
+            opacity: 1;
+        }
+        
+        section div.room-prev img:hover {
+            opacity: .8;
+            border-radius: 10px;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child),
+            .dropdown .dropbtn {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+            section .room .back {
+                visibility: hidden;
+            }
+            div.time {
+                position: absolute;
+                right: 155px;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            section {
+                width: 100%;
+                height: 100vh;
+                display: block;
+                background-color: rgba(241, 204, 163, 0.616);
+            }
+            section .room {
+                width: 100%;
+                height: auto;
+            }
+            div.room-discription {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                width: 100%;
+                height: 30vh;
+            }
+            section .room-gallery {
+                width: 90%;
+                margin: 30px auto;
+                z-index: 2;
+            }
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .topnav.responsive .dropdown {
+                float: none;
+            }
+            .topnav.responsive .dropdown-content {
+                position: relative;
+            }
+            .topnav.responsive .dropdown .dropbtn {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="sign_up.css">
+    <script src="sign_up.js">
+    </script>
+</head>
+
+<body ononline="onFunction()" onoffline="offFunction() " onresize="location.reload()">
+    <div id="buller" onclick="menuBr(0)"></div>
+    <nav>
+        <div class="logo">
+            <img src="/projectidl/img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1" onclick="menuBr(1)">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="menuBr(0)" style="padding-left:5px ;">X
+
+
+                </li>
+                <li>
+                    <a href="/projectidl/index.html">home</a>
+                </li>
+
+                <li>
+                    <a href="sign_up_librarian.html">sign up as admin</a>
+                </li>
+                <li>
+                    <a href="sign_up_student.html">sign up as user</a>
+                </li>
+
+                <li class="active">
+                    <a href="about.html">about us</a>
+                </li>
+                <li> <a href="log_in.html">LOG-IN</a></li>
+
+            </ul>
+        </div>
+
+
+        <div class="login">
+            <div class="time" id="Timeid"></div>
+        </div>
+
+
+    </nav>
+
+    <section>
+
+
+        <div class="room-discription ">
+            <h2>developer</h2>
+            </h2>
+
+            <h3>
+                amrendra kumar singh(sushil)
+            </h3>
+            <h2>supporter developer</h2>
+            <h4>er ravi raushon</h4>
+            <h4>er rani priya</h4>
+
+        </div>
+        <div class="room">
+            <div class="back">
+                <img class="room-hi0" id="room-background" src="/projectidl/img/amrendra.jpeg " alt=" ">
+                <div class="bkgc">
+
+                </div>
+            </div>
+            <div class="room-gallery ">
+                <img class="room-hi1" src="/projectidl/img/amrendra.jpeg " alt=" ">
+                <div class="room-prev ">
+                    <img src="/projectidl/img/ravi.jpeg" alt="ravi raushon pic " class="room-active">
+                    <img src="/projectidl/img/ranipriya.jpeg " alt=" priya pic">
+                    <img src="/projectidl/img/amrendra.jpeg " alt=" amrendra pic">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive ";
+            } else {
+                x.className = "topnav ";
+            }
+        }
+
+        function onFunction() {
+            document.getElementsByTagName("body")[0].setAttribute("class", "show");
+
+
+
+        }
+
+        function offFunction() {
+            document.getElementsByTagName("body")[0].setAttribute("class", "hide");
+            alert("you re offline");
+        }
+
+        function imageGallery() {
+            const highlight0 = document.querySelector(".room-hi0");
+            const highlight1 = document.querySelector(".room-hi1");
+            const preview = document.querySelectorAll(".room-prev img");
+
+            function rem() {
+                preview.forEach(preview => {
+                    preview.classList.remove("room-active");
+                    console.log(preview);
+                });
+            }
+            preview.forEach(preview => {
+                preview.addEventListener("click", function() {
+                    const smallsrc = this.src;
+
+                    highlight1.src = smallsrc;
+                    highlight0.src = highlight1.src;
+                    rem()
+                    preview.classList.add('room-active')
+
+
+
+                });
+
+
+            });
+        }
+        imageGallery();
+        let a;
+        let date;
+        let time;
+        let min;
+        let hour;
+        let sec;
+
+        setInterval(() => {
+            a = new Date();
+
+            hour = a.getHours();
+
+            min = a.getMinutes();
+            if (min < 10) {
+                min = 0 + '' + min;
+            }
+            sec = a.getSeconds();
+            if (sec < 10) {
+                sec = 0 + '' + sec;
+            }
+            time = hour + ':' + min + ':' + sec;
+            document.getElementById("Timeid").innerHTML = time;
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

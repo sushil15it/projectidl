@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Digital library</title>
+    <link rel="icon" type="image/png" href="img/idi circle-LOGO.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+            /* box-sizing: border-box; */
+        }
+        /* navbar css {*/
+        
+        ul li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+        
+        nav {
+            max-height: 40px;
+            background-color: rgb(9, 70, 11);
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        
+        nav .navbar,
+        nav .login {
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+        }
+        
+        nav .navbar button,
+        #menubar {
+            display: none;
+        }
+        
+        nav .navbar button .icon-bar {
+            padding: .5px;
+            margin: 3px;
+            width: 19px;
+            min-height: .7px;
+            z-index: -1;
+            display: flex;
+            border: 1px solid black;
+        }
+        
+        nav .login a,
+        nav .menu ul li {
+            text-decoration: none;
+            color: white;
+            border-left: 1px solid black;
+        }
+        
+        nav .login a,
+        nav .menu ul li a {
+            transition-property: all;
+            transition-duration: 1.5s;
+            line-height: 40px;
+            font-size: 20px;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+        
+        nav .login a:hover,
+        nav .menu ul li:hover {
+            font-style: italic;
+            text-decoration: underline;
+            background-color: rgb(13, 94, 15);
+            color: rgb(145, 154, 161);
+        }
+        
+        .active {
+            font-weight: bold;
+            background-color: rgb(31, 190, 31);
+            font-style: italic;
+            border: 1px sold black;
+            border-radius: 5px;
+        }
+        
+        @media screen and (min-width:902px) {
+            nav .menu ul li {
+                display: inline-block;
+            }
+        }
+        
+        @media screen and (max-width:902px) {
+            nav .navbar button,
+            #menubar {
+                display: block;
+            }
+            nav .menu ul li {
+                border: none;
+                border-bottom: .7px dotted red;
+                height: fit-content;
+            }
+            nav .menu ul li a {
+                transition-property: all;
+                transition-duration: 1.5s;
+                line-height: 40px;
+                font-size: 20px;
+                padding: 9px 15px;
+            }
+            nav .menu {
+                transition-property: all;
+                transition-duration: 1.7s;
+                background-color: rgb(9, 70, 11);
+                position: fixed;
+                right: 0;
+                top: 40px;
+                z-index: 10;
+                width: fit-content;
+                padding: 10px;
+            }
+        }
+        /* } */
+        
+        main {
+            min-height: 100vh;
+            justify-content: center;
+            background: linear-gradient(to left top, #65dfc9, #6cdbeb);
+            display: flex;
+            align-items: center;
+        }
+        
+        .glass {
+            border-radius: 2rem;
+            width: 60%;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right top, rgba(255, 255, 255, 0.966), rgba(255, 255, 255, 0.2));
+        }
+        
+        .glass header {
+            margin: 20px auto;
+            font-size: 25px;
+            border-bottom: 2px solid gray;
+            width: fit-content;
+        }
+        
+        .glass p {
+            margin: 10px auto;
+            display: block;
+            width: 90%;
+            height: 90%;
+            text-align: center;
+            /* transform: translate(-50%, ); */
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body onresize="location.reload()">
+    <nav>
+        <div class="logo">
+            <img src="/projectidl/img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2" style="right: -100%;">
+            <ul>
+                <li id="menubar" onclick="hidemenubar()" style="padding-left:5px ;">X
+
+
+                </li>
+                <li class="active">
+                    <a href="/projectidl/indexhome.html">home</a>
+                </li>
+                <li>
+                    <a href="/projectidl/login/log_in.html">book database</a>
+                </li>
+                <li>
+                    <a href="/projectidl/login/sign_up_librarian.html">sign up as admin</a>
+                </li>
+                <li>
+                    <a href="/projectidl/login/sign_up_student.html">sign up as user</a>
+                </li>
+
+                <li>
+                    <a href="/projectidl/login/about.html">about you</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="login">
+            <a href="/projectidl/login/log_in.html">LOG-IN</a>
+        </div>
+
+
+    </nav>
+    <main>
+        <div class="glass">
+            <header>welcome to Indian digital library</header>
+            <p>this is library software.you can use this library<br> as your by sign up as librarian (for library owner) or <br>as a student ( only for register library student)</p>
+            <header>use of Indian Digital library</header>
+            <p>firstly register your ibrary if you are student then request your librarian to register the library and add all book detail (
+                <i><b> id = loction of that book in ur library</b> </i>)which is avilabe in ur library and <b>manage and track issue status</b> by using this software<br> student can send request to issue book and after verification of requset student
+                can collect book by visiting library .student can also track issue status by login</p>
+        </div>
+
+    </main>
+    <footer>
+    </footer>
+    <script>
+        S1 = document.getElementById("s1");
+        S11 = document.getElementById("s11");
+        S12 = document.getElementById("s12");
+        S13 = document.getElementById("s13");
+        S2 = document.getElementById("s2");
+
+        function showmenubar() {
+            S2.style.right = 0 + "px";
+            S1.style.display = "none";
+
+        }
+        window.onclick = function(event) {
+            var w = window.innerWidth;
+
+
+            if (event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) {
+
+                showmenubar();
+            } else if (event.target != s2 && !(event.target == S11 || event.target == S12 || event.target == S13 || event.target == s1) && w <= 902) {
+
+                hidemenubar();
+
+            }
+
+        }
+
+        function hidemenubar() {
+            s2.style.right = -100 + "%";
+            s1.style.display = "block";
+        }
+    </script>
+
+</body>
+
+
+</html>

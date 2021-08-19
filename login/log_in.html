@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel="stylesheet" href="sign_up.css">
+    <script src="sign_up.js">
+    </script>
+</head>
+
+<body onresize="location.reload()">
+    <div id="buller" onclick="menuBr(0)"></div>
+    <nav>
+        <div class="logo">
+            <img src="/projectidl/img/idm-l-h.png" alt="">
+
+        </div>
+        <div class="navbar">
+
+            <button id="s1" onclick="menuBr(1)">
+                <span id="s11" class="icon-bar"></span>
+                <span id="s12" class="icon-bar"></span>
+                <span id="s13" class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="menu" id="s2">
+            <ul>
+                <li id="menubar" onclick="menuBr(0)" style="padding-left:5px ;">X
+
+
+                </li>
+                <li>
+                    <a href="/projectidl/index.html">home</a>
+                </li>
+                <li>
+                    <a href="log_in.html">book database</a>
+                </li>
+                <li>
+                    <a href="sign_up_librarian.html">sign up as admin</a>
+                </li>
+                <li>
+                    <a href="sign_up_student.html">sign up as user</a>
+                </li>
+
+                <li>
+                    <a href="about.html">about us</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="login">
+            <a class="active" href="log_in.html">LOG-IN</a>
+        </div>
+
+
+    </nav>
+    <main>
+        <div class="wrappeer">
+            <div class="box">
+                <h1 class="header">log in</h1>
+
+
+                <div>
+                    <form action="/projectidl/login/loginphp/login.php" method="POST" formenctype>
+
+                        <div class="field input_box">
+                            <label>Email Id or user id<span style="color: rgb(138, 0, 0);">*</span> </label>
+                            <input type="text" name="id" placeholder="ak@gmail.com" required>
+                        </div>
+                        <div class="field input_box">
+                            <label>password<span style="color: rgb(138, 0, 0);">*</span> </label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <input type="checkbox" id="cheakbox1" onclick="showpassword('password')"><label>show password</label>
+
+                        <div><button id="submit" style="min-width: 260px;">log -in</button></div>
+                    </form>
+                    <div class="link">yet not signed up?
+                        <div> <a href="sign_up_student.html">sign-up as user</a></div>
+                        <div> <a href="sign_up_librarian.html">sign-up as admin</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+</html>
